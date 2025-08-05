@@ -1,0 +1,31 @@
+import 'dart:math';
+
+import 'package:flutter/material.dart';
+import 'package:test_app/smoke_roller.dart';
+import 'package:test_app/styled_text.dart';
+
+var alignmentInitial = Alignment.topLeft;
+var alignmentEnd = Alignment.bottomRight;
+
+class GradientContainer extends StatelessWidget {
+  const GradientContainer(this.color1, this.color2, {super.key});
+
+  final Color color1;
+  final Color color2;
+
+  @override
+  Widget build(context) {
+    return Container(
+      decoration: BoxDecoration(
+        gradient: LinearGradient(
+          colors: [color1, color2],
+          begin: alignmentInitial,
+          end: alignmentEnd,
+        ),
+      ),
+      child: Center(
+        child: SmokeRoller(),
+      ),
+    );
+  }
+}
